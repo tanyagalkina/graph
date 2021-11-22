@@ -2,41 +2,43 @@
 
 
 FIRST_TEST = "\
+[0 0 1 0 0 0]\n\
+[0 0 1 0 0 1]\n\
+[0 0 0 1 0 0]\n\
+[0 0 0 0 0 0]\n\
+[0 0 0 0 0 1]\n\
+[0 0 0 1 0 0]\n\
+\n\
+fc.c -> fc.o -> tty\n\
+fc.h -> fc.o -> tty\n\
+fc.h -> tty.o -> tty\n\
+fc.o -> tty\n\
+tty.c -> tty.o -> tty\n\
+tty.o -> tty\n"
+
+FIRST_TEST = "\
 "
 
 WRONG_NUMBER_ARGS = "\
 Wrong number of args, please try with -h ...\n"
 
-MAP1_OUTPUT = "\
-++++++++++\n\
-          \n\
-     2    \n\
-    212   \n\
-    1F12  \n\
-     12   \n\
-     P    \n\
-          \n\
-          \n\
-++++++++++\n"
-
-
-MAP2_OUTPUT = "\
-@@@@@@@@@@@@@@@\n\
-@      @109890@\n\
-@ @ @@8@0@@7@9@\n\
-@  P767@987678@\n\
-@ @ @5@@@7@5@7@\n\
-@ @8@43@765456@\n\
-@ @7@@2@8@@3@@@\n\
-@@@6@21090@2@@@\n\
-@765432101@1F1@\n\
-@8@6@43212@2@@@\n\
-@@@7@5@@@@@3@@@\n\
-@  876@@765456@\n\
-@ @@@7@@8@6@@7@\n\
-@  @ 8 @987@98@\n\
-@@   @@@0@8@0@@\n\
-@  @   @109012@\n\
-@ @@@7@@2@@@@3@\n\
-@ @ @654345654@\n\
-@@@@@@@@@@@@@@@\n"
+HOUSE_ANSWER = "\
+Total duration of construction: 28 weeks\n\n\
+Lan must begin at t=0\n\
+Fou must begin at t=3\n\
+Car must begin at t=11\n\
+Mas must begin between t=11 and t=13\n\
+Cov must begin at t=15\n\
+Ele must begin at t=17\n\
+Plu must begin at t=18\n\
+Hea must begin between t=18 and t=25\n\
+Fin must begin at t=19\n\n\
+Lan\t(0)\t===\n\
+Fou\t(0)\t   ========\n\
+Car\t(0)\t           ====\n\
+Mas\t(2)\t           ====\n\
+Cov\t(0)\t               ==\n\
+Ele\t(0)\t                 =\n\
+Plu\t(0)\t                  =\n\
+Hea\t(7)\t                  ===\n\
+Fin\t(0)\t                   =========\n"

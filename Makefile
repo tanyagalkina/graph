@@ -13,7 +13,7 @@ TESTDIR	=	tests/
 
 TESTSRC =	$(TESTDIR)test_construction.py
 
-NAME = 			305pacman
+NAME = 			305construction
 
 all:    		$(NAME)
 
