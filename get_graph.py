@@ -65,7 +65,8 @@ def get_graph(filename):
         if task.masters:
            for ms in task.masters:
                 master = find_by_name(ms, graph)
-                master.slaves.append(task.nickname)
+                if master:
+                    master.slaves.append(task.nickname)
     for task in graph:
         if task.masters:
             for ms in task.masters:
