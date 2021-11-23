@@ -6,7 +6,12 @@ from utils import *
 
 ######TODO: JUST WRITE THE PRINT
 def print_res(r):
-    print(r)
+    for task in r:
+        task.display_one()
+    print()
+    for task in r:
+        task.display_two()
+
 
 
 def get_duration(graph):
@@ -67,9 +72,15 @@ def run_algo(graph):
     algo_function(visited, queue, graph)
 
     project_duration = get_duration(graph)
+    weeks = 'weeks' if project_duration > 1 else 'week'
+    print('Total duration of construction:', project_duration, weeks)
+    print()
 
     for task in graph:
         set_begin_end(task, graph, project_duration)
+    for task in graph:
+        task.set_time_range()
+
     sorted_graph = sorted(graph, key=lambda k: (k.begin_start, k.duration, k.nickname))
 
     print_res(sorted_graph)

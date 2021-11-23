@@ -24,11 +24,31 @@ class Task:
         line.pop(0)
         self.masters = line
         self.indegree = len(self.masters)
+        self.time_range = 0
 
         self.slaves = []
         if find_by_name(self.nickname, graph):
             display_error('CANNOT GET TWO IDENTICAL OBJECTS')
         graph.append(self)
+
+
+    def set_time_range(self):
+        if self.begin_end is not -1:
+            self.time_range = self.begin_end - self.begin_start
+
+    def display_one(self):
+        if self.begin_end is  -1:
+            print("{} must begin at t={}".format(self.nickname, self.begin_start))
+        else:
+            print("{} must begin between t={} and t={}".format(self.nickname, self.begin_start, self.begin_end))
+
+    def display_two(self):
+        print(self.nickname, end='\t')
+        print("(", self.time_range, ")", sep="", end='\t')
+
+        print(" " * self.begin_start, end='')
+        print("=" * self.duration)
+
         #self.build_strings = []
         #self.level = -1
         #self.stage = -1
