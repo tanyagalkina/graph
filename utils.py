@@ -5,14 +5,14 @@ from colorama import Fore, Style, init
 sys.path.insert(1, './tests')
 from answers import HOUSE_ANSWER
 
-USAGE = "USAGE\n\t./305construction file\n\nDESCRIPTION\n\tfile\tfile describing the tasks\n"
+USAGE = "USAGE\n\t./305construction file\n\nDESCRIPTION\n\tfile\tfile describing the tasks"
 
 
 
 def display_error(string):
 
     print(Fore.RED + Style.BRIGHT + string + Style.RESET_ALL)
-    sys.stderr.write(USAGE)
+    print(USAGE)
     exit(84)
 
 

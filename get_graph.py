@@ -7,23 +7,26 @@ import colorama
 from colorama import Fore, Style, init
 
 
-def find_by_name(name, graph):
+def find_by_name(nickname, graph):
     for s in graph:
-        if s.name == name:
+        if s.nickname == nickname:
             return s
 
 class Task:
     def __init__(self, line, graph):
+        self.begin_start = -1
+        self.begin_end = -1
         self.nickname = line[0]
-        line.pop()
+        line.pop(0)
         self.name = line[0]
-        line.pop()
+        line.pop(0)
         self.duration = line[0]
-        line.pop()
+        line.pop(0)
         self.masters = line
+        self.indegree = len(self.masters)
 
         self.slaves = []
-        if find_by_name(self.name, graph):
+        if find_by_name(self.nickname, graph):
             display_error('CANNOT GET TWO IDENTICAL OBJECTS')
         graph.append(self)
         #self.build_strings = []
@@ -44,7 +47,7 @@ def get_graph(filename):
             for line in lines:
                 if len(line) is not 0:
                     count += 1
-                    print(line)
+                    #print(line)
                     Task(line, graph)
             if count is 0:
                 display_error('THE FILE YOU PROVIDED IS EMPTY')
@@ -58,5 +61,15 @@ def get_graph(filename):
     except Exception as err:
         print(f"Unexpected error opening {filename} is", repr(err))
         sys.exit(84)
+    for task in graph:
+        if task.masters:
+           for ms in task.masters:
+                master = find_by_name(ms, graph)
+                master.slaves.append(task.nickname)
+    for task in graph:
+        if task.masters:
+            for ms in task.masters:
+                if ms in task.slaves:
+                    display_error("CIRCLE DEPENDENCIES ARE NOT ALLOWED")
 
     return graph
