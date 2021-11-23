@@ -49,11 +49,6 @@ class Task:
         print(" " * self.begin_start, end='')
         print("=" * self.duration)
 
-        #self.build_strings = []
-        #self.level = -1
-        #self.stage = -1
-        #self.built = False
-
 
 
 def get_graph(filename):
@@ -67,7 +62,6 @@ def get_graph(filename):
             for line in lines:
                 if len(line) is not 0:
                     count += 1
-                    #print(line)
                     Task(line, graph)
             if count is 0:
                 display_error('THE FILE YOU PROVIDED IS EMPTY')

@@ -4,7 +4,6 @@ from get_graph import Task
 
 from utils import *
 
-######TODO: JUST WRITE THE PRINT
 def print_res(r):
     for task in r:
         task.display_one()

@@ -16,9 +16,6 @@ def main_func(av):
         print('Wrong number of args, please try with -h ...', file=sys.stderr)
         sys.exit(84)
     graph = get_graph(av[1])
-    #for task in graph:
-
-    #    print(task.slaves)
     run_algo(graph)
 
 if __name__ == '__main__':

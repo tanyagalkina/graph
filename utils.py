@@ -16,18 +16,6 @@ def display_error(string):
     exit(84)
 
 
-'''def invalid_file():
-    sys.stderr.write("\nInvalid file\n\n")
-    sys.stderr.write(USAGE)
-    exit(84)
-
-
-def invalid_syntax():
-    sys.stderr.write("\nInvalid syntax\n\n")
-    sys.stderr.write(USAGE)
-    exit(84)'''
-
 def display_help():
-    #print(HOUSE_ANSWER)
     print(USAGE)
     exit(0)
