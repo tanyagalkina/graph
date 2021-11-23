@@ -20,7 +20,7 @@ class Task:
         line.pop(0)
         self.name = line[0]
         line.pop(0)
-        self.duration = line[0]
+        self.duration = int(line[0])
         line.pop(0)
         self.masters = line
         self.indegree = len(self.masters)
